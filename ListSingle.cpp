@@ -10,7 +10,7 @@
 #include <vector>
 #include <set>
 #include <string>
-
+#include <stack>
 
 typedef struct ListNode {
 	int m_Value;
@@ -80,6 +80,26 @@ void print(LISTNODE* chead) {
 	std::cout << std::endl;
 }
 
+void releasePrint(LISTNODE* chead) {
+	if(chead->next == NULL) {
+		return;
+	}
+	std::stack<LISTNODE*> nodes;
+
+	LISTNODE* lnode = chead->next;
+	while(lnode != NULL) {
+		nodes.push(lnode);
+		lnode = lnode->next;
+	}
+
+	while(!nodes.empty()) {
+		lnode = nodes.top();
+		std::cout << lnode->m_Value << " ";
+		nodes.pop();
+	}
+	std::cout << std::endl;
+}
+
 int main(int argc, char** argv) {
 	
 	LISTNODE* chead = new LISTNODE();
@@ -94,11 +114,13 @@ int main(int argc, char** argv) {
 	print(chead);
 	std::cout << "\ninput Delete number: " << std::endl;
 
-	int delValue = 0;
+/*	int delValue = 0;
 	while(std::cin >> delValue && delValue != -1){
 		delNode(chead, delValue);
 		std::cout << "After delete " << delValue << " : " << std::endl;
 		print(chead);
 	}
+	*/
+	releasePrint(chead);
 	return 0;
 }
