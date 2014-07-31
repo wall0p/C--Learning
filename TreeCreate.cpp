@@ -2,7 +2,7 @@
 //#	Author: xuechenglong --dukanglu@126.com
 #	Last modified:23:48 06-07-2014
 #	Filename:TreeCreate.cpp
-#	Description:
+#	Description: create a tree by using the pre sort and mid sort list
 #*********************************************************/
 
 #include <iostream>
